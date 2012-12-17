@@ -19,7 +19,7 @@ class AdTrackerController < ApplicationController
 end
 
 class AddCounter
-  Librato::Metrics.authenticate 'brian-com@thevanloos.com', ENV['LIBRETO_KEY']
+  Librato::Metrics.authenticate 'brian-com@thevanloos.com', ENV['LIBRATO_KEY']
 
   def self.aggregator
     @@aggregator ||= Librato::Metrics::Aggregator.new source: :test_app1, autosubmit_interval: 30
