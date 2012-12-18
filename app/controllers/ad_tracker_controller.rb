@@ -20,6 +20,8 @@ end
 
 class AddCounter
   Librato::Metrics.authenticate 'brian-com@thevanloos.com', ENV['LIBRATO_KEY']
+  # Librato::Metrics.faraday_adapter = :em_http
+  puts Librato::Metrics.faraday_adapter.to_yaml
 
   def self.aggregator
     @@aggregator ||= Librato::Metrics::Aggregator.new source: :test_app1, autosubmit_interval: 30
